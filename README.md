@@ -12,4 +12,18 @@ The archive expands into `data/` and provides the precomputed habitat cluster em
 
 **4. explore_habitat_cluster.html**: Interactively explore the habitat clustering 3D UMAP embedding (generated via `scripts/generate_umap_explorer.py`), with toggles to color by cluster palette or simplified microntology annotations.
 
+## Environment
+Create the conda environment defined in `environment.yml` (Python 3.11 with pinned scientific stack):
+
+```bash
+conda env create -f environment.yml
+conda activate planetary-microbiome
+```
+
+If the environment already exists, update it to match the file and prune stale packages:
+
+```bash
+conda env update -f environment.yml --prune
+```
+
 Citation: https://doi.org/10.1101/2025.07.18.664989
