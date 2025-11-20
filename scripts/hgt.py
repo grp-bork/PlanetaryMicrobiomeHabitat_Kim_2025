@@ -643,14 +643,17 @@ def line_and_bar_dualaxes_plot(df, x_axis, y_axis1, y_axis2, save=None):
     """Dual-axis visualization used for Figure 5E"""
 
     fig, ax1 = plt.subplots(figsize=(12, 6))
-    ax1.bar(df[x_axis], df[y_axis1], color="lightblue", label=y_axis1, alpha=0.7)
+    x_positions = np.arange(len(df))
+
+    ax1.bar(x_positions, df[y_axis1], color="lightblue", label=y_axis1, alpha=0.7)
     ax1.set_ylabel(y_axis1, color="blue")
     ax1.tick_params(axis="y", labelcolor="blue")
+    ax1.set_xticks(x_positions)
     ax1.set_xticklabels(df[x_axis], rotation=45, ha="right")
     ax1.set_ylim([0, 0.5])
 
     ax2 = ax1.twinx()
-    ax2.plot(df[x_axis], df[y_axis2], color="red", marker="o", label=y_axis2, zorder=10)
+    ax2.plot(x_positions, df[y_axis2], color="red", marker="o", label=y_axis2, zorder=10)
     ax2.set_ylabel(y_axis2, color="red")
     ax2.tick_params(axis="y", labelcolor="red")
     ax2.set_ylim([0, 1])
